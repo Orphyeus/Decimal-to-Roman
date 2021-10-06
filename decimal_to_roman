@@ -1,0 +1,120 @@
+#include <stdio.h>
+
+
+int main() {
+    
+  int number;
+  int l=1;
+  
+  // Roman symbols
+  // in decimal   1    5   10    50  100  500  1000
+  char roman[]= {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+
+ while(l!=0)
+ {
+
+  //input
+  printf("\nEnter a decimal number: ");
+  scanf("%d",&number);
+
+  if(number<0){
+    printf("\nYou entered a negative number!");
+    return 0;
+  }else if(number==0){
+    printf("\nYou entered Zero!\n");
+    return 0;
+  }else if(number>=4000){
+    printf("\nMaximum value of the Roman Numerals is 3999!");
+    return 0;
+  }else
+  { printf("\nRoman value of the number: ");
+  }
+
+  
+  while(number != 0)
+  {
+    if (number >= 1000)       // 1000 = M
+    {
+      printf("%c",roman[6]);
+      number -= 1000;
+    }
+
+    else if (number >= 900)   // 900 =  CM
+    {
+      printf("%c%c",roman[4],roman[6]);
+      number -= 900;
+    }        
+
+    else if (number >= 500)   // 500 = D
+    {           
+      printf("%c",roman[5]);
+      number -= 500;
+    }
+
+    else if (number >= 400)   // 400 =  CD
+    {
+      printf("%c%c",roman[4],roman[5]);
+      number -= 400;
+    }
+
+    else if (number >= 100)   // 100 = C
+    {
+      printf("%c",roman[4]);
+      number -= 100;                       
+    }
+
+    else if (number >= 90)    // 90 = XC
+    {
+      printf("%c%c",roman[2],roman[4]);
+      number -= 90;                                              
+    }
+
+    else if (number >= 50)    // 50 = L
+    {
+      printf("%c",roman[3]);
+      number -= 50;                                                                     
+    }
+
+    else if (number >= 40)    // 40 = XL
+    {
+      printf("%c%c",roman[2],roman[3]);            
+      number -= 40;
+    }
+
+    else if (number >= 10)    // 10 = X
+    {
+      printf("%c",roman[2]);
+      number -= 10;           
+    }
+
+    else if (number >= 9)     // 9 = IX
+    {
+      printf("%c%c",roman[0],roman[2]);
+      number -= 9;                         
+    }
+
+    else if (number >= 5)     // 5 = V
+    {
+      printf("%c",roman[1]);
+      number -= 5;                                     
+    }
+
+    else if (number >= 4)     // 4 = IV
+    {
+      printf("%c%c",roman[0],roman[1]);
+      number -= 4;                                                            
+    }
+
+    else if (number >= 1)     // 1 = I
+    {
+      printf("%c",roman[0]);
+      number -= 1;                                                                     
+    }
+  }
+
+  printf("\n\nDo you want to continue? (1/0)\n");
+  scanf("%d",&l);
+ }
+
+ return 0;
+}
